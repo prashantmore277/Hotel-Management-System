@@ -4,8 +4,10 @@
  */
 package hotel.management.system;
 
+
+
 /**
- *
+ * 
  * @author PRASHANT MORE
  */
 public class HotelManagementSystem {
