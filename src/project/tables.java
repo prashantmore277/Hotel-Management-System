@@ -20,7 +20,6 @@ public class tables {
             con = ConnectionProvider.getCon();
             st = con.createStatement();
             st.executeUpdate("Create table users(name varchar(200),email varchar(200),password varchar(50),securityQuestion varchar(500),answer varchar(200),address varchar(200),status varchar(20))");
-            JOptionPane.showMessageDialog(null,"Table Created Successfully");
 
         }
 //        Catch Section
