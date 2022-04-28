@@ -144,7 +144,7 @@ public class logIn extends javax.swing.JFrame {
             try{      
                 if(rs.next()){
                     check = 1;
-                    if(rs.getString(7).equals("false")){
+                    if(rs.getString(7).equals("true")){
                         setVisible(false);
                         new Home().setVisible(true);
                     }
