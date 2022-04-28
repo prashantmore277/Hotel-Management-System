@@ -117,6 +117,8 @@ public class logIn extends javax.swing.JFrame {
 
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
+        new signup().setVisible(true);
     }//GEN-LAST:event_btnSignupActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
@@ -165,6 +167,8 @@ public class logIn extends javax.swing.JFrame {
 
     private void btnForgotPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnForgotPasswordActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
+        new forgotPassword().setVisible(true);
     }//GEN-LAST:event_btnForgotPasswordActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed

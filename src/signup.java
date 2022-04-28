@@ -149,11 +149,21 @@ public class signup extends javax.swing.JFrame {
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(102, 0, 51));
         btnLogin.setText("Log In");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 530, -1, -1));
 
         btnForgotPassword.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnForgotPassword.setForeground(new java.awt.Color(102, 0, 51));
         btnForgotPassword.setText("Forgot Password");
+        btnForgotPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnForgotPasswordActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnForgotPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 530, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/signup.PNG"))); // NOI18N
@@ -194,6 +204,18 @@ public class signup extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new logIn().setVisible(true);
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnForgotPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnForgotPasswordActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new forgotPassword().setVisible(true);
+    }//GEN-LAST:event_btnForgotPasswordActionPerformed
 
     /**
      * @param args the command line arguments
