@@ -29,7 +29,7 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        CustomerCheckIn = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
@@ -49,10 +49,15 @@ public class Home extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("STZhongsong", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Customer Registration & Check IN.png"))); // NOI18N
-        jButton2.setText("Customer Check IN ");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
+        CustomerCheckIn.setFont(new java.awt.Font("STZhongsong", 1, 14)); // NOI18N
+        CustomerCheckIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Customer Registration & Check IN.png"))); // NOI18N
+        CustomerCheckIn.setText("Customer Check IN ");
+        CustomerCheckIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CustomerCheckInActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CustomerCheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
 
         jButton3.setFont(new java.awt.Font("STZhongsong", 1, 14)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Customer Check Out.png"))); // NOI18N
@@ -123,6 +128,12 @@ public class Home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnExitActionPerformed
 
+    private void CustomerCheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerCheckInActionPerformed
+        // TODO add your handling code here:.
+        
+        new checkCustomer().setVisible(true);
+    }//GEN-LAST:event_CustomerCheckInActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -159,10 +170,10 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CustomerCheckIn;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
