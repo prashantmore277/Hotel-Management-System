@@ -17,10 +17,11 @@ public class tables {
         Statement st = null;
 //        Try Section
         try{
-            con = ConnectionProvider.getCon();
+            con = ConnectionProvider.getCon();  
             st = con.createStatement();
-            st.executeUpdate("create table room(roomNo varchar(10),roomType varchar(200),bed varchar(200),price int,status varchar(20))");
-            st.executeUpdate("Create table users(name varchar(200),email varchar(200),password varchar(50),securityQuestion varchar(500),answer varchar(200),address varchar(200),status varchar(20))");
+//            st.executeUpdate("create table room(roomNo varchar(10),roomType varchar(200),bed varchar(200),price int,status varchar(20))");
+//            st.executeUpdate("Create table users(name varchar(200),email varchar(200),password varchar(50),securityQuestion varchar(500),answer varchar(200),address varchar(200),status varchar(20))");
+            st.executeUpdate("create table customer(id int, name varchar(200),mobileNo varchar(20),nationality varchar(50),gender varchar(200),email varchar(200), idProof varchar(200), address varchar(500),checkin varchar(50),roomNo varchar(10),bed varchar(200), roomType varchar(200), pricePerDay int(10),numberOfDays int(10), totalAmount varchar(200), checkOut varchar(50)) ");
             JOptionPane.showMessageDialog(null, "Table Created Successfully");
 
         }
