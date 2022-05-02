@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import project.*;
 /**
  *
  * @author PRASHANT MORE
@@ -14,7 +17,23 @@ public class checkOutCustomer extends javax.swing.JFrame {
      */
     public checkOutCustomer() {
         initComponents();
+        txtName.setEditable(false);
+        txtDate.setEditable(false);
+        txtCheckOutDate.setEditable(false);
+        txtMobNo.setEditable(false);
+        txtPricePerDay.setEditable(false);
+        txtNumbeOfDaysStay.setEditable(false);
+        txtTotalAmount.setEditable(false);
+        txtEmail.setEditable(false);
+        
     }
+    
+    int id = 0;
+    String Query;
+    String roomType;
+    String bed;
+    String roomNo;
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,6 +73,11 @@ public class checkOutCustomer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(110, 100));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("STZhongsong", 1, 14)); // NOI18N
@@ -97,10 +121,7 @@ public class checkOutCustomer extends javax.swing.JFrame {
 
         tableCheckOut.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Id", "Name", "Mobile Number", "Nationality", "Gender", "Email", "ID Proof", "Address", "CheckIn Date", "Room Number", "Bed", "Room Type", "Price Per Day"
@@ -302,6 +323,23 @@ public class checkOutCustomer extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_btnCloseActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+        ResultSet rs = Select.getData("SELECT * from customer where checkOut is NULL");
+        DefaultTableModel model = (DefaultTableModel) tableCheckOut.getModel();
+        try{
+            while(rs.next()){
+                model.addRow(new Object[] {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(11),rs.getString(11),rs.getString(12),rs.getString(13)});
+                
+            }
+            rs.close();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }//GEN-LAST:event_formComponentShown
 
     /**
      * @param args the command line arguments
