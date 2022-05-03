@@ -2,7 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import static java.nio.file.Files.exists;
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import project.*;
@@ -18,7 +27,7 @@ public class checkOutCustomer extends javax.swing.JFrame {
     public checkOutCustomer() {
         initComponents();
         txtName.setEditable(false);
-        txtDate.setEditable(false);
+        txtCDate.setEditable(false);
         txtCheckOutDate.setEditable(false);
         txtMobNo.setEditable(false);
         txtPricePerDay.setEditable(false);
@@ -54,7 +63,7 @@ public class checkOutCustomer extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtMobNo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtDate = new javax.swing.JTextField();
+        txtCDate = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtCheckOutDate = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -150,14 +159,14 @@ public class checkOutCustomer extends javax.swing.JFrame {
         jLabel4.setText("Check IN Date");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 300, 30));
 
-        txtDate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtDate.setForeground(new java.awt.Color(102, 0, 51));
-        txtDate.addActionListener(new java.awt.event.ActionListener() {
+        txtCDate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtCDate.setForeground(new java.awt.Color(102, 0, 51));
+        txtCDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDateActionPerformed(evt);
+                txtCDateActionPerformed(evt);
             }
         });
-        getContentPane().add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 290, 30));
+        getContentPane().add(txtCDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 290, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 0, 51));
@@ -279,9 +288,9 @@ public class checkOutCustomer extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMobNoActionPerformed
 
-    private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
+    private void txtCDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCDateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDateActionPerformed
+    }//GEN-LAST:event_txtCDateActionPerformed
 
     private void txtCheckOutDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCheckOutDateActionPerformed
         // TODO add your handling code here:
@@ -309,14 +318,128 @@ public class checkOutCustomer extends javax.swing.JFrame {
 
     private void btnCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOutActionPerformed
         // TODO add your handling code here:
+        String name = txtName.getText();
+        String mobileNo = txtMobNo.getText();
+        String email = txtEmail.getText();
+        
+        String checkOut = txtCheckOutDate.getText();
+        String numberOfDaysStay = txtNumbeOfDaysStay.getText();
+        String totalAmount = txtTotalAmount.getText();
+        
+        roomNo = txtSearch.getText();
+        
+        Query = "update customer set numberOfDays = '"+numberOfDaysStay+"', totalAmount = '"+totalAmount+"',checkOut = '"+checkOut+"' where id = '"+id+"' ";
+        InsertUpdateDelete.setData(Query, "");
+        Query="update room set status='Not Booked' where roomNo= '"+roomNo+"'";
+        InsertUpdateDelete.setData(Query, "");
+        
+        String path = "P:\\Coding\\Projects\\Hotel Management System\\BillPDFs";
+        com.itextpdf.text.Document doc = new com.itextpdf.text.Document();
+        try {
+             PdfWriter.getInstance(doc, new FileOutputStream(path+""+id+".pdf"));
+             doc.open();
+             Paragraph paragraph1 = new Paragraph("                                               Hotel Management System                                               ");
+             doc.add(paragraph1);
+
+             Paragraph paragraph2 = new Paragraph("*********************************************************************************************************************");
+             doc.add(paragraph2);
+
+             Paragraph paragraph3 = new Paragraph("\tBill ID : '"+id+"'\nCustomer Details : \nName : '"+name+"'\nMobileNo : '"+mobileNo+"'\nEmail : '"+email+"'");
+             doc.add(paragraph3);
+
+             doc.add(paragraph2);
+
+             Paragraph paragraph4 = new Paragraph("\tRoom Details : \nNumber : '"+txtSearch.getText()+"'\nType : '"+roomType+"'\nBed : '"+bed+"'\nPrice Per Day : "+txtPricePerDay.getText()+"");
+             doc.add(paragraph4);
+             
+             doc.add(paragraph2);
+             
+             PdfPTable tb1 =new PdfPTable(4);
+             tb1.addCell("Check IN Date" + txtCDate.getText());
+             
+             tb1.addCell("Check OUT Date" + checkOut);
+             
+             tb1.addCell("Check IN Date" + numberOfDaysStay);
+             
+             tb1.addCell("Check IN Date" + totalAmount);
+             
+             doc.add(tb1);
+             
+             Paragraph paragraph5 = new Paragraph("Thanks you, Please Visit Again.");
+             doc.add(paragraph5);
+        }   
+        catch (Exception e) {
+            int a = JOptionPane.showConfirmDialog(null, "Do you want to Print Bill","Select",JOptionPane.YES_NO_OPTION);
+            if(a==0){
+                try {
+                    if((new File(path+id+".pdf")).exists()){
+                        Process p = Runtime
+                                .getRuntime()
+                                .exec("rund1132 url.dll,FileProtocolHandler "+path+"+"+id+".pdf");
+                       
+                    }
+                } 
+                catch (IOException f) {
+                    JOptionPane.showMessageDialog(null, f);
+                }
+            }
+            setVisible(false);
+            new checkOutCustomer().setVisible(true);
+                    
+        }
+        
+        
+        
     }//GEN-LAST:event_btnCheckOutActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
+        new checkOutCustomer().setVisible(true);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
+        String roomNo = txtSearch.getText();
+        try {
+            ResultSet rs = Select.getData("select * from customer where roomNo ='"+roomNo+"' and checkout is NUll");
+            if(rs.next()){
+                txtSearch.setEditable(false);
+                id = rs.getInt(1);
+                txtName.setText(rs.getString(2));
+                txtCDate.setText(rs.getString(9));
+                txtPricePerDay.setText(rs.getString(13));
+                txtMobNo.setText(rs.getString(3));
+                SimpleDateFormat myFormat = new SimpleDateFormat("dd/MM/yyyy");
+                Calendar cal = Calendar.getInstance();
+                
+                txtCheckOutDate.setText(myFormat.format(cal.getTime()));
+                String dateBeforeString = rs.getString(9);
+                java.util.Date dateBefore = myFormat.parse(dateBeforeString);
+                String dateAfterString = myFormat.format(cal.getTime());
+                java.util.Date dateAfter = myFormat.parse(dateAfterString);
+                long difference = dateAfter.getTime() - dateBefore.getTime();
+                int noOfDayStay = ( int ) (difference/(1000*60*60*24));
+                if(noOfDayStay  == 0){
+                    noOfDayStay = 1;
+                }
+                txtNumbeOfDaysStay.setText(String.valueOf(noOfDayStay));
+                float price = Float.parseFloat(txtPricePerDay.getText());
+                txtTotalAmount.setText(String.valueOf(noOfDayStay*price));
+                txtEmail.setText(rs.getString(6));
+                roomType = rs.getString(12);
+                bed = rs.getString(11);
+                
+            }
+            
+            else{
+                       JOptionPane.showMessageDialog(null,"Room Numbder is not booked or does not exist!!!!");
+            }                
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
@@ -330,8 +453,7 @@ public class checkOutCustomer extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tableCheckOut.getModel();
         try{
             while(rs.next()){
-                model.addRow(new Object[] {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(11),rs.getString(11),rs.getString(12),rs.getString(13)});
-                
+                model.addRow(new Object[] {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13)});     
             }
             rs.close();
         }
@@ -394,8 +516,8 @@ public class checkOutCustomer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableCheckOut;
+    private javax.swing.JTextField txtCDate;
     private javax.swing.JTextField txtCheckOutDate;
-    private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtMobNo;
     private javax.swing.JTextField txtName;
