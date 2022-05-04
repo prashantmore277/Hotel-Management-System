@@ -106,7 +106,7 @@ public class checkOutCustomer extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 0, 0));
         jLabel2.setText("Room No ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 120, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 120, 30));
 
         txtSearch.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtSearch.setForeground(new java.awt.Color(102, 0, 0));
@@ -115,7 +115,7 @@ public class checkOutCustomer extends javax.swing.JFrame {
                 txtSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 370, 30));
+        getContentPane().add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 370, 30));
 
         btnCheckOut.setBackground(new java.awt.Color(102, 0, 51));
         btnCheckOut.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
