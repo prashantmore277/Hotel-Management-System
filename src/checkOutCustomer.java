@@ -261,7 +261,7 @@ public class checkOutCustomer extends javax.swing.JFrame {
                 btnClearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 130, 30));
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 140, 30));
 
         btnSearch.setBackground(new java.awt.Color(102, 0, 51));
         btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N

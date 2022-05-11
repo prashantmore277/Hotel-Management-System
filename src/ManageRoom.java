@@ -81,7 +81,9 @@ public class ManageRoom extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 121, 730, -1));
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 0, 51));
         jLabel2.setText("Room Type");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 210, 300, 30));
 
@@ -89,7 +91,9 @@ public class ManageRoom extends javax.swing.JFrame {
         txtRoomNo.setForeground(new java.awt.Color(102, 0, 51));
         getContentPane().add(txtRoomNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 160, 300, 30));
 
+        jLabel3.setBackground(new java.awt.Color(102, 0, 51));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 0, 51));
         jLabel3.setText("Room Number");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 120, 300, 30));
 
@@ -103,7 +107,9 @@ public class ManageRoom extends javax.swing.JFrame {
         });
         getContentPane().add(comboType, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 260, 300, 30));
 
+        jLabel4.setBackground(new java.awt.Color(102, 0, 51));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 0, 0));
         jLabel4.setText("Bed");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 310, 300, 30));
 
@@ -117,7 +123,9 @@ public class ManageRoom extends javax.swing.JFrame {
         });
         getContentPane().add(comboBed, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 360, 300, 30));
 
+        jLabel5.setBackground(new java.awt.Color(102, 0, 51));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 0, 51));
         jLabel5.setText("Price");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 410, 300, 30));
 
@@ -125,7 +133,9 @@ public class ManageRoom extends javax.swing.JFrame {
         txtPrice.setForeground(new java.awt.Color(102, 0, 51));
         getContentPane().add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 450, 300, 30));
 
+        btnAddRoom.setBackground(new java.awt.Color(102, 0, 51));
         btnAddRoom.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAddRoom.setForeground(new java.awt.Color(255, 255, 255));
         btnAddRoom.setText("Add Room");
         btnAddRoom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

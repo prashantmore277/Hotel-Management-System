@@ -47,7 +47,7 @@ public class Home extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 190, -1));
 
         CustomerCheckIn.setFont(new java.awt.Font("STZhongsong", 1, 14)); // NOI18N
         CustomerCheckIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Customer Registration & Check IN.png"))); // NOI18N
@@ -88,7 +88,7 @@ public class Home extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 50, -1, -1));
+        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1034, 50, 140, -1));
 
         btnExit.setFont(new java.awt.Font("STZhongsong", 1, 14)); // NOI18N
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit.png"))); // NOI18N
@@ -98,7 +98,7 @@ public class Home extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 50, -1, -1));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 50, 130, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
