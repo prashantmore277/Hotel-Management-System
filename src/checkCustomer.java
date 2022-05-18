@@ -76,13 +76,13 @@ public class checkCustomer extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtName1 = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtNum1 = new javax.swing.JTextField();
+        txtNum = new javax.swing.JTextField();
         txtdate = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        comboGender1 = new javax.swing.JComboBox<>();
+        comboGender = new javax.swing.JComboBox<>();
         comboBed1 = new javax.swing.JComboBox<>();
         comboRType = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
@@ -185,28 +185,28 @@ public class checkCustomer extends javax.swing.JFrame {
         jLabel4.setText("Name");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 350, 30));
 
-        txtName1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtName1.setForeground(new java.awt.Color(102, 0, 0));
-        txtName1.addActionListener(new java.awt.event.ActionListener() {
+        txtName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtName.setForeground(new java.awt.Color(102, 0, 0));
+        txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtName1ActionPerformed(evt);
+                txtNameActionPerformed(evt);
             }
         });
-        getContentPane().add(txtName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 350, 30));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 350, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 0, 0));
         jLabel8.setText("Mobile Number");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 350, 30));
 
-        txtNum1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtNum1.setForeground(new java.awt.Color(102, 0, 0));
-        txtNum1.addActionListener(new java.awt.event.ActionListener() {
+        txtNum.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtNum.setForeground(new java.awt.Color(102, 0, 0));
+        txtNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNum1ActionPerformed(evt);
+                txtNumActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 350, 30));
+        getContentPane().add(txtNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 350, 30));
 
         txtdate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtdate.setForeground(new java.awt.Color(102, 0, 0));
@@ -227,10 +227,10 @@ public class checkCustomer extends javax.swing.JFrame {
         jLabel10.setText("Bed");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 140, 350, 30));
 
-        comboGender1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        comboGender1.setForeground(new java.awt.Color(102, 0, 0));
-        comboGender1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
-        getContentPane().add(comboGender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 350, 30));
+        comboGender.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        comboGender.setForeground(new java.awt.Color(102, 0, 0));
+        comboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
+        getContentPane().add(comboGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 350, 30));
 
         comboBed1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         comboBed1.setForeground(new java.awt.Color(102, 0, 0));
@@ -320,13 +320,13 @@ public class checkCustomer extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressActionPerformed
 
-    private void txtName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName1ActionPerformed
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtName1ActionPerformed
+    }//GEN-LAST:event_txtNameActionPerformed
 
-    private void txtNum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNum1ActionPerformed
+    private void txtNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNum1ActionPerformed
+    }//GEN-LAST:event_txtNumActionPerformed
 
     private void txtdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdateActionPerformed
         // TODO add your handling code here:
@@ -344,6 +344,47 @@ public class checkCustomer extends javax.swing.JFrame {
 
     private void btnAlloteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlloteActionPerformed
         // TODO add your handling code here:
+        int id = 1;
+        String name = txtName.getText();
+        String mobileNum = txtNum.getText();
+        String nationality = txtNationality.getText();
+        String gender = (String) comboGender.getSelectedItem();
+        String email = txtEmail.getText();
+        
+        String idProof = txtID.getText();    
+        String address = txtAddress.getText();
+        String checkIn = txtdate.getText();
+        
+        String bed = (String) comboBed.getSelectedItem();
+        String roomType = (String) comboRType.getSelectedItem();
+        String roomNo = (String) comboNum.getSelectedItem();
+        String price = txtPrice.getText();
+        
+        String Query = "Select max(id) from Customer";
+        
+        try{
+            ResultSet rs = Select.getData(Query);
+            while(rs.next()){
+                id = rs.getInt(1);
+                id = id+1;
+                
+                if(!price.equals("")){
+                    Query="Update room set status ='Booked' where roomNo = '"+roomNo+"'";
+                    InsertUpdateDelete.setData(Query, "Room Status Updated Successfully");
+                    Query = "Insert into customer(id, name, mobileNo, nationality, gender, email, idProof, address, checkin, roomNo, bed, roomType, pricePerDay) values("+id+",'"+name+"','"+mobileNum+"','"+nationality+"','"+gender+"','"+email+"','"+idProof+"','"+address+"','"+checkIn+"','"+roomNo+"','"+bed+"','"+roomType+"','"+price+"')";
+                    InsertUpdateDelete.setData(Query,"Customer Check In SuccessFully");
+                    new checkCustomer().setVisible(true);
+                    
+                }
+                        
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+        
     }//GEN-LAST:event_btnAlloteActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
@@ -417,7 +458,7 @@ public class checkCustomer extends javax.swing.JFrame {
     private javax.swing.JButton btnClose;
     private javax.swing.JComboBox<String> comboBed;
     private javax.swing.JComboBox<String> comboBed1;
-    private javax.swing.JComboBox<String> comboGender1;
+    private javax.swing.JComboBox<String> comboGender;
     private javax.swing.JComboBox<String> comboNum;
     private javax.swing.JComboBox<String> comboRType;
     private javax.swing.JLabel jLabel1;
@@ -438,9 +479,9 @@ public class checkCustomer extends javax.swing.JFrame {
     private javax.swing.JButton txtClear;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtID;
-    private javax.swing.JTextField txtName1;
+    private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNationality;
-    private javax.swing.JTextField txtNum1;
+    private javax.swing.JTextField txtNum;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtdate;
     // End of variables declaration//GEN-END:variables
