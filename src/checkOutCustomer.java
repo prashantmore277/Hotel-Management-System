@@ -82,6 +82,8 @@ public class checkOutCustomer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(110, 100));
+        setUndecorated(true);
+        setResizable(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -333,7 +335,7 @@ public class checkOutCustomer extends javax.swing.JFrame {
         Query="update room set status='Not Booked' where roomNo= '"+roomNo+"'";
         InsertUpdateDelete.setData(Query, "");
         
-        String path = "P:\\Coding\\Projects\\Hotel Management System\\BillPDFs";
+        String path = "P:\\";
         com.itextpdf.text.Document doc = new com.itextpdf.text.Document();
         try {
              PdfWriter.getInstance(doc, new FileOutputStream(path+""+id+".pdf"));
@@ -359,36 +361,39 @@ public class checkOutCustomer extends javax.swing.JFrame {
              
              tb1.addCell("Check OUT Date" + checkOut);
              
-             tb1.addCell("Check IN Date" + numberOfDaysStay);
+             tb1.addCell("Number Of Days Stay" + numberOfDaysStay);
              
-             tb1.addCell("Check IN Date" + totalAmount);
+             tb1.addCell("Total Amount Paid" + totalAmount);
              
              doc.add(tb1);
+             
+             doc.add(paragraph2);
              
              Paragraph paragraph5 = new Paragraph("Thanks you, Please Visit Again.");
              doc.add(paragraph5);
         }   
         catch (Exception e) {
-            int a = JOptionPane.showConfirmDialog(null, "Do you want to Print Bill","Select",JOptionPane.YES_NO_OPTION);
-            if(a==0){
-                try {
-                    if((new File(path+id+".pdf")).exists()){
-                        Process p = Runtime
-                                .getRuntime()
-                                .exec("rund1132 url.dll,FileProtocolHandler "+path+"+"+id+".pdf");
-                       
-                    }
-                } 
-                catch (IOException f) {
-                    JOptionPane.showMessageDialog(null, f);
-                }
-            }
-            setVisible(false);
-            new checkOutCustomer().setVisible(true);
-                    
+            JOptionPane.showMessageDialog(null, e);
         }
-        
-        
+        doc.close();
+        int a = JOptionPane.showConfirmDialog(null, "Do you want to Print Bill","Select",JOptionPane.YES_NO_OPTION);
+        if(a==0){
+            try {
+                if((new File("P:\\"+id+".pdf")).exists()){
+                    Process p = Runtime
+                            .getRuntime()
+                            .exec("rundll32 url.dll,FileProtocolHandler P:\\"+id+".pdf");
+                }
+                else{
+                    System.out.println("File is not Exists");
+                }
+            } 
+            catch (IOException f) {
+                JOptionPane.showMessageDialog(null, f);
+            }
+        }
+        setVisible(false);
+        new checkOutCustomer().setVisible(true);
         
     }//GEN-LAST:event_btnCheckOutActionPerformed
 
