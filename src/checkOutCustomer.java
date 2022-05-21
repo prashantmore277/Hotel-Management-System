@@ -340,10 +340,10 @@ public class checkOutCustomer extends javax.swing.JFrame {
         try {
              PdfWriter.getInstance(doc, new FileOutputStream(path+""+id+".pdf"));
              doc.open();
-             Paragraph paragraph1 = new Paragraph("                                               Hotel Management System                                               ");
+             Paragraph paragraph1 = new Paragraph("                                          Hotel Management System                                               ");
              doc.add(paragraph1);
 
-             Paragraph paragraph2 = new Paragraph("*********************************************************************************************************************");
+             Paragraph paragraph2 = new Paragraph("*****************************************************************************************************************");
              doc.add(paragraph2);
 
              Paragraph paragraph3 = new Paragraph("\tBill ID : '"+id+"'\nCustomer Details : \nName : '"+name+"'\nMobileNo : '"+mobileNo+"'\nEmail : '"+email+"'");
