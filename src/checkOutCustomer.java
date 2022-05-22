@@ -138,6 +138,8 @@ public class checkOutCustomer extends javax.swing.JFrame {
                 "Id", "Name", "Mobile Number", "Nationality", "Gender", "Email", "ID Proof", "Address", "CheckIn Date", "Room Number", "Bed", "Room Type", "Price Per Day"
             }
         ));
+        tableCheckOut.setColumnSelectionAllowed(false);
+        tableCheckOut.setSelectionBackground(new java.awt.Color(102, 0, 0));
         jScrollPane1.setViewportView(tableCheckOut);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 1210, 180));
@@ -455,7 +457,8 @@ public class checkOutCustomer extends javax.swing.JFrame {
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
         ResultSet rs = Select.getData("SELECT * from customer where checkOut is NULL");
-        DefaultTableModel model = (DefaultTableModel) tableCheckOut.getModel();
+        DefaultTableModel model = (DefaultTableModel) 
+                tableCheckOut.getModel();
         try{
             while(rs.next()){
                 model.addRow(new Object[] {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13)});     

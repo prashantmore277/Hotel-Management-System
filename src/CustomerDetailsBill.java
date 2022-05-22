@@ -1,10 +1,12 @@
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import project.*;
 
 /*
@@ -23,9 +25,11 @@ public class CustomerDetailsBill extends javax.swing.JFrame {
      */
     public CustomerDetailsBill() {
         initComponents();
+        
         SimpleDateFormat myFormat = new SimpleDateFormat("dd/MM/yyyy");
         Calendar cal = Calendar.getInstance();
-        txtFieldSearch.setText(myFormat(cal.getTime()));
+                
+        txtFieldSearch.setText(myFormat.format(cal.getTime()));
     } 
 
     /**
@@ -40,17 +44,22 @@ public class CustomerDetailsBill extends javax.swing.JFrame {
         btnClose = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         txtFieldSearch = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableBilldetails = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(70, 150));
         setUndecorated(true);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -64,58 +73,88 @@ public class CustomerDetailsBill extends javax.swing.JFrame {
                 btnCloseActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 10, -1, -1));
+        getContentPane().add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 10, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 0, 51));
         jLabel3.setText("   Search By CheckOut Date   ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, -1, 30));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 0, 51));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Customer Details Bill.png"))); // NOI18N
         jLabel2.setText("Customer Details Bill");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
-
-        jLabel1.setForeground(new java.awt.Color(102, 0, 102));
-        jLabel1.setToolTipText("");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         txtFieldSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFieldSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(txtFieldSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, 270, 30));
+        getContentPane().add(txtFieldSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, 270, 30));
 
         jButton1.setBackground(new java.awt.Color(102, 0, 51));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Search");
         jButton1.setToolTipText("");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 120, -1, 30));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, -1, 30));
 
+        tableBilldetails.setAutoCreateRowSorter(true);
         tableBilldetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Id", "Name", "MobileNo", "Nationality", "Gender", "Email", "IdProof", "Address", "CheckIn Date", "Room No", "Bed", "Room Type", "PricePer Day", "NumOfDays", "TotalAmount", "Check out"
             }
         ));
-        tableBilldetails.setColumnSelectionAllowed(true);
+        tableBilldetails.setCellSelectionEnabled(false);
+        tableBilldetails.setSelectionBackground(new java.awt.Color(102, 0, 51));
+        tableBilldetails.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tableBilldetails.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableBilldetailsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableBilldetails);
         tableBilldetails.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (tableBilldetails.getColumnModel().getColumnCount() > 0) {
+            tableBilldetails.getColumnModel().getColumn(0).setHeaderValue("Id");
+            tableBilldetails.getColumnModel().getColumn(1).setHeaderValue("Name");
+            tableBilldetails.getColumnModel().getColumn(2).setHeaderValue("MobileNo");
+            tableBilldetails.getColumnModel().getColumn(3).setHeaderValue("Nationality");
+            tableBilldetails.getColumnModel().getColumn(4).setHeaderValue("Gender");
+            tableBilldetails.getColumnModel().getColumn(5).setHeaderValue("Email");
+            tableBilldetails.getColumnModel().getColumn(6).setHeaderValue("IdProof");
+            tableBilldetails.getColumnModel().getColumn(7).setHeaderValue("Address");
+            tableBilldetails.getColumnModel().getColumn(8).setHeaderValue("CheckIn Date");
+            tableBilldetails.getColumnModel().getColumn(9).setHeaderValue("Room No");
+            tableBilldetails.getColumnModel().getColumn(10).setHeaderValue("Bed");
+            tableBilldetails.getColumnModel().getColumn(11).setHeaderValue("Room Type");
+            tableBilldetails.getColumnModel().getColumn(12).setHeaderValue("PricePer Day");
+            tableBilldetails.getColumnModel().getColumn(13).setHeaderValue("NumOfDays");
+            tableBilldetails.getColumnModel().getColumn(14).setHeaderValue("TotalAmount");
+            tableBilldetails.getColumnModel().getColumn(15).setHeaderValue("Check out");
+        }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 1200, 340));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 1200, 340));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 0, 0));
         jLabel4.setText("*Click On Row To Open Bill");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 510, -1, -1));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/all pages background.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 550, -1, -1));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabel1.setForeground(new java.awt.Color(102, 0, 102));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/all pages background.png"))); // NOI18N
+        jLabel1.setToolTipText("");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -128,6 +167,7 @@ public class CustomerDetailsBill extends javax.swing.JFrame {
 
     private void txtFieldSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldSearchActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtFieldSearchActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
@@ -143,6 +183,50 @@ public class CustomerDetailsBill extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_formComponentShown
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String checkOutDate = txtFieldSearch.getText();
+        ResultSet rs = Select.getData("select * from customer where checkOut='"+checkOutDate+"'");
+        DefaultTableModel model = (DefaultTableModel)tableBilldetails.getModel();
+        model.setRowCount(0);
+        
+        
+
+        try{
+            while(rs.next()){
+                model.addRow(new Object[] {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14),rs.getString(15),rs.getString(16)});
+            }
+            rs.close();
+
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tableBilldetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableBilldetailsMouseClicked
+        // TODO add your handling code here:
+        int index = tableBilldetails.getSelectedRow();
+        TableModel model = tableBilldetails.getModel();
+        String id = model.getValueAt(index,0).toString();
+        try{
+            if((new File("P:\\"+id+".pdf")).exists()){
+                    Process p = Runtime
+                            .getRuntime()
+                            .exec("rundll32 url.dll,FileProtocolHandler P:\\"+id+".pdf");
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,"File Not Exists!!!");
+        }
+        
+    }//GEN-LAST:event_tableBilldetailsMouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_formMouseClicked
 
     /**
      * @param args the command line arguments
@@ -192,7 +276,5 @@ public class CustomerDetailsBill extends javax.swing.JFrame {
     private javax.swing.JTextField txtFieldSearch;
     // End of variables declaration//GEN-END:variables
 
-    private String myFormat(Date time) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 }

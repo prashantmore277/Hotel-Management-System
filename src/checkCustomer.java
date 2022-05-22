@@ -389,7 +389,6 @@ public class checkCustomer extends javax.swing.JFrame {
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
-                setVisible(false);
 
     }//GEN-LAST:event_btnCloseActionPerformed
 
