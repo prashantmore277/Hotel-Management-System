@@ -96,7 +96,7 @@ public class checkCustomer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusCycleRoot(false);
-        setLocation(new java.awt.Point(70, 120));
+        setLocation(new java.awt.Point(120, 140));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -104,7 +104,7 @@ public class checkCustomer extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(102, 0, 51));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Customer Registration & Check IN.png"))); // NOI18N
         jLabel1.setText("Customer Check IN");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
 
         btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close.png"))); // NOI18N
         btnClose.addActionListener(new java.awt.event.ActionListener() {
@@ -389,7 +389,7 @@ public class checkCustomer extends javax.swing.JFrame {
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
-
+                setVisible(false);
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void comboBedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBedActionPerformed

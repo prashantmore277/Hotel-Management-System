@@ -43,17 +43,23 @@ public class AdminHome extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                formComponentResized(evt);
+            }
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel1.setText("W elcome Admin !");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 470, 70));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/admin.png"))); // NOI18N
+        jLabel1.setText("Admin Panel !!");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 250, 70));
 
         btnLogOut.setFont(new java.awt.Font("Algerian", 1, 12)); // NOI18N
         btnLogOut.setForeground(new java.awt.Color(153, 0, 51));
@@ -64,7 +70,7 @@ public class AdminHome extends javax.swing.JFrame {
                 btnLogOutActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 20, -1, -1));
+        getContentPane().add(btnLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 70, -1, -1));
 
         btnExit.setFont(new java.awt.Font("Algerian", 1, 12)); // NOI18N
         btnExit.setForeground(new java.awt.Color(153, 0, 51));
@@ -75,11 +81,11 @@ public class AdminHome extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 20, -1, -1));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 70, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Search By Name OR Email");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 170, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 170, 30));
 
         txtSearchName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtSearchName.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +93,7 @@ public class AdminHome extends javax.swing.JFrame {
                 txtSearchNameActionPerformed(evt);
             }
         });
-        getContentPane().add(txtSearchName, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 360, 30));
+        getContentPane().add(txtSearchName, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, 360, 30));
 
         btnClear.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnClear.setForeground(new java.awt.Color(102, 0, 0));
@@ -97,7 +103,7 @@ public class AdminHome extends javax.swing.JFrame {
                 btnClearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 210, -1, 30));
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 200, -1, 30));
 
         btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnSearch.setForeground(new java.awt.Color(102, 0, 0));
@@ -107,7 +113,7 @@ public class AdminHome extends javax.swing.JFrame {
                 btnSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 210, -1, 30));
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 200, -1, 30));
 
         tableLayout.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,9 +136,9 @@ public class AdminHome extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableLayout);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 1330, 480));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 1340, 430));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/admin Home.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -237,6 +243,10 @@ public class AdminHome extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_tableLayoutMouseClicked
+
+    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentResized
 
     /**
      * @param args the command line arguments

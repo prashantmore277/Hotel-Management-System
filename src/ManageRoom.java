@@ -29,6 +29,7 @@ public class ManageRoom extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -39,13 +40,18 @@ public class ManageRoom extends javax.swing.JFrame {
         comboType = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         comboBed = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
         txtPrice = new javax.swing.JTextField();
         btnAddRoom = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
+        jLabel5.setBackground(new java.awt.Color(102, 0, 51));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 0, 51));
+        jLabel5.setText("Price");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(70, 120));
+        setLocation(new java.awt.Point(120, 140));
+        setMinimumSize(new java.awt.Dimension(1266, 600));
         setUndecorated(true);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -54,12 +60,12 @@ public class ManageRoom extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("STZhongsong", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/manage room.png"))); // NOI18N
         jLabel1.setText("Manage Room");
         jLabel1.setToolTipText("");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 178, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 178, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -123,12 +129,6 @@ public class ManageRoom extends javax.swing.JFrame {
         });
         getContentPane().add(comboBed, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 360, 300, 30));
 
-        jLabel5.setBackground(new java.awt.Color(102, 0, 51));
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 0, 51));
-        jLabel5.setText("Price");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 410, 300, 30));
-
         txtPrice.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtPrice.setForeground(new java.awt.Color(102, 0, 51));
         getContentPane().add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 450, 300, 30));
@@ -145,7 +145,7 @@ public class ManageRoom extends javax.swing.JFrame {
         getContentPane().add(btnAddRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 500, 110, 30));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/all pages background.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 600));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

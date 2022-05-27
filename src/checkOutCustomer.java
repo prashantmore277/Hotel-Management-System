@@ -81,7 +81,7 @@ public class checkOutCustomer extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(110, 100));
+        setLocation(new java.awt.Point(120, 140));
         setUndecorated(true);
         setResizable(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -91,11 +91,11 @@ public class checkOutCustomer extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("STZhongsong", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 51));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Customer Check Out.png"))); // NOI18N
         jLabel1.setText("Customer Check Out");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
 
         btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close.png"))); // NOI18N
         btnClose.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +103,7 @@ public class checkOutCustomer extends javax.swing.JFrame {
                 btnCloseActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 10, 30, 30));
+        getContentPane().add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 20, 40, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 0, 0));
@@ -138,7 +138,6 @@ public class checkOutCustomer extends javax.swing.JFrame {
                 "Id", "Name", "Mobile Number", "Nationality", "Gender", "Email", "ID Proof", "Address", "CheckIn Date", "Room Number", "Bed", "Room Type", "Price Per Day"
             }
         ));
-        tableCheckOut.setColumnSelectionAllowed(false);
         tableCheckOut.setSelectionBackground(new java.awt.Color(102, 0, 0));
         jScrollPane1.setViewportView(tableCheckOut);
 

@@ -17,6 +17,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
+        
     }
 
     /**
@@ -38,10 +39,17 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocation(new java.awt.Point(0, 0));
         setUndecorated(true);
         setResizable(false);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                formComponentResized(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setFont(new java.awt.Font("STZhongsong", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/manage room.png"))); // NOI18N
         jButton1.setText("Manage Room");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -50,7 +58,7 @@ public class Home extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 190, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 190, -1));
 
         CustomerCheckIn.setFont(new java.awt.Font("STZhongsong", 1, 14)); // NOI18N
         CustomerCheckIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Customer Registration & Check IN.png"))); // NOI18N
@@ -60,7 +68,7 @@ public class Home extends javax.swing.JFrame {
                 CustomerCheckInActionPerformed(evt);
             }
         });
-        getContentPane().add(CustomerCheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
+        getContentPane().add(CustomerCheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
 
         jButton3.setFont(new java.awt.Font("STZhongsong", 1, 14)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Customer Check Out.png"))); // NOI18N
@@ -70,7 +78,7 @@ public class Home extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, -1, -1));
 
         jButton4.setFont(new java.awt.Font("STZhongsong", 1, 14)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Customer Details Bill.png"))); // NOI18N
@@ -80,7 +88,7 @@ public class Home extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 50, 230, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 60, 230, -1));
 
         btnLogout.setFont(new java.awt.Font("STZhongsong", 1, 14)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(102, 0, 51));
@@ -91,7 +99,7 @@ public class Home extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1034, 50, 140, -1));
+        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 60, 140, -1));
 
         btnExit.setFont(new java.awt.Font("STZhongsong", 1, 14)); // NOI18N
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit.png"))); // NOI18N
@@ -101,10 +109,12 @@ public class Home extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 50, 130, -1));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 60, 130, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -147,6 +157,10 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
         new checkOutCustomer().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentResized
 
     /**
      * @param args the command line arguments

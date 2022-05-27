@@ -53,8 +53,9 @@ public class CustomerDetailsBill extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(70, 150));
+        setLocation(new java.awt.Point(120, 140));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1266, 600));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -80,11 +81,11 @@ public class CustomerDetailsBill extends javax.swing.JFrame {
         jLabel3.setText("   Search By CheckOut Date   ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, 30));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 0, 51));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Customer Details Bill.png"))); // NOI18N
         jLabel2.setText("Customer Details Bill");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
 
         txtFieldSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +115,6 @@ public class CustomerDetailsBill extends javax.swing.JFrame {
                 "Id", "Name", "MobileNo", "Nationality", "Gender", "Email", "IdProof", "Address", "CheckIn Date", "Room No", "Bed", "Room Type", "PricePer Day", "NumOfDays", "TotalAmount", "Check out"
             }
         ));
-        tableBilldetails.setCellSelectionEnabled(false);
         tableBilldetails.setSelectionBackground(new java.awt.Color(102, 0, 51));
         tableBilldetails.setSelectionForeground(new java.awt.Color(255, 255, 255));
         tableBilldetails.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -154,7 +154,7 @@ public class CustomerDetailsBill extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(102, 0, 102));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/all pages background.png"))); // NOI18N
         jLabel1.setToolTipText("");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
