@@ -380,7 +380,7 @@ public class checkOutCustomer extends javax.swing.JFrame {
         int a = JOptionPane.showConfirmDialog(null, "Do you want to Print Bill","Select",JOptionPane.YES_NO_OPTION);
         if(a==0){
             try {
-                if((new File("P:\\"+id+".pdf")).exists()){
+                if((new File(path+id+".pdf")).exists()){
                     Process p = Runtime
                             .getRuntime()
                             .exec("rundll32 url.dll,FileProtocolHandler P:\\"+id+".pdf");

@@ -30,10 +30,10 @@ public class signup extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        jFrame1 = new javax.swing.JFrame();
         jButton2 = new javax.swing.JButton();
         txtEmail = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -47,6 +47,8 @@ public class signup extends javax.swing.JFrame {
         btnSignup = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
         btnForgotPassword = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
@@ -63,11 +65,11 @@ public class signup extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 10, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1460, 20, -1, -1));
 
         txtEmail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(102, 0, 51));
-        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, 280, 30));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, 280, 30));
 
         txtName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtName.setForeground(new java.awt.Color(102, 0, 51));
@@ -76,98 +78,113 @@ public class signup extends javax.swing.JFrame {
                 txtNameActionPerformed(evt);
             }
         });
-        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 280, 31));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, 280, 31));
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("<html><h1><b>SignUp</b><h1></html>");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 540, 38));
-
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Email");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 60, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 140, 30));
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("<html><b>Name</b></html>");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, 60, 30));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 140, 30));
 
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("SequrityQuestion");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 103, 30));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 140, 30));
 
         txtSQuestion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtSQuestion.setForeground(new java.awt.Color(102, 0, 51));
         txtSQuestion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "What is the name of your first pet?", "What was your first car?", "What elementary school did you attend?", "What is the name of the town where you were born?" }));
-        getContentPane().add(txtSQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 280, 30));
+        getContentPane().add(txtSQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 420, 280, 30));
 
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel5.setText("Password");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 60, 30));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 140, 30));
 
         txtPassword.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(102, 0, 51));
-        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 330, 280, 30));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 380, 280, 30));
 
         txtAddress.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtAddress.setForeground(new java.awt.Color(102, 0, 51));
-        getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, 280, 31));
+        getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 500, 280, 31));
 
         txtAnswer.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtAnswer.setForeground(new java.awt.Color(102, 0, 51));
-        getContentPane().add(txtAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 280, 31));
+        getContentPane().add(txtAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 460, 280, 31));
 
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel6.setText("Address");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, 60, 30));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 140, 30));
 
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel7.setText("<html><b>Answer</b></html>");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, 60, 30));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 450, 140, 30));
 
+        btnSignup.setBackground(new java.awt.Color(102, 0, 51));
         btnSignup.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnSignup.setForeground(new java.awt.Color(102, 0, 51));
+        btnSignup.setForeground(new java.awt.Color(255, 255, 255));
         btnSignup.setText("SignUp");
         btnSignup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSignupActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, -1, -1));
+        getContentPane().add(btnSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 580, 90, 30));
 
+        btnLogin.setBackground(new java.awt.Color(102, 0, 51));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(102, 0, 51));
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Log In");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 530, -1, -1));
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 580, 90, 30));
 
+        btnForgotPassword.setBackground(new java.awt.Color(102, 0, 51));
         btnForgotPassword.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnForgotPassword.setForeground(new java.awt.Color(102, 0, 51));
+        btnForgotPassword.setForeground(new java.awt.Color(255, 255, 255));
         btnForgotPassword.setText("Forgot Password");
         btnForgotPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnForgotPasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(btnForgotPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 530, -1, -1));
+        getContentPane().add(btnForgotPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 580, 140, 30));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/signup.PNG"))); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -220, 1740, 1200));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 0), 3, true));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("<html><h1><b>SignUp</b><h1></html>");
+        jPanel1.add(jLabel1);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 560, 430));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home.png"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -70, 1740, 1200));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -258,6 +275,7 @@ public class signup extends javax.swing.JFrame {
     private javax.swing.JButton btnSignup;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -266,6 +284,7 @@ public class signup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAnswer;
     private javax.swing.JTextField txtEmail;

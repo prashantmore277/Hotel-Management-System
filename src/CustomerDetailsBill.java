@@ -209,9 +209,10 @@ public class CustomerDetailsBill extends javax.swing.JFrame {
         // TODO add your handling code here:
         int index = tableBilldetails.getSelectedRow();
         TableModel model = tableBilldetails.getModel();
+//        String id = model.getValueAt(index,0).toString();
         String id = model.getValueAt(index,0).toString();
         try{
-            if((new File("P:\\"+id+".pdf")).exists()){
+            if((new File("P:\\bills"+id+".pdf")).exists()){
                     Process p = Runtime
                             .getRuntime()
                             .exec("rundll32 url.dll,FileProtocolHandler P:\\"+id+".pdf");
